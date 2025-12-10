@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 내 월급으로 어디까지?
 
-## Getting Started
+월급과 연봉에 맞는 적정 월세, 차량 가격, 저축액을 계산해주는 한국 직장인을 위한 재정 가이드 서비스입니다.
 
-First, run the development server:
+## 주요 기능
+
+### 월세 계산기 (`/home`)
+- 세전/세후 월급 또는 연봉 입력
+- 안전/적정/위험 범위 월세 추천
+- 시각적 비율 표시
+
+### 차량 추천 (`/car`)
+- 연봉 기반 적정 차량가 추천 (연봉의 30~50%)
+- 월 유지비 계산 (보험, 유류비, 세금, 정비)
+- 할부 시뮬레이션 (12~60개월)
+
+### 저축 플래너 (`/savings`)
+- 저축 강도별 추천 (최소 10%, 권장 20%, 적극 30%)
+- 복리 효과 시뮬레이션 (1년~10년)
+- 비상금 6개월치 목표 달성 계산
+- 연도별 예상 자산 시각화
+
+## 기술 스택
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **UI Components**: shadcn/ui
+- **Icons**: Lucide React
+
+## 시작하기
 
 ```bash
+# 의존성 설치
+npm install
+
+# 개발 서버 실행
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# 프로덕션 빌드
+npm run build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+http://localhost:3000 에서 확인할 수 있습니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 프로젝트 구조
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── page.tsx          # 랜딩 페이지
+│   ├── home/page.tsx     # 월세 계산기
+│   ├── car/page.tsx      # 차량 추천
+│   └── savings/page.tsx  # 저축 플래너
+├── components/
+│   ├── ui/               # shadcn/ui 컴포넌트
+│   └── layout/           # 헤더, 푸터
+└── lib/
+    ├── calculations.ts   # 계산 로직
+    └── utils.ts          # 유틸리티
+```
 
-## Learn More
+## 계산 기준
 
-To learn more about Next.js, take a look at the following resources:
+### 월세
+- 안전: 세후 월급의 20%
+- 적정: 세후 월급의 25~30%
+- 위험: 세후 월급의 33%+
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 차량
+- 추천 범위: 연봉의 30~50%
+- 유지비: 보험(차량가 3%), 유류비(월 15만원), 세금, 정비(차량가 2%)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 저축
+- 최소: 세후 월급의 10%
+- 권장: 세후 월급의 20%
+- 적극: 세후 월급의 30%
+- 비상금 목표: 6개월치 생활비
 
-## Deploy on Vercel
+## 면책조항
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+이 서비스에서 제공하는 추천 금액은 일반적인 재정 가이드라인을 기반으로 한 참고 자료입니다. 개인의 재정 상황에 따라 적정 금액은 달라질 수 있으며, 중요한 재정 결정은 전문가와 상담하시기 바랍니다.
