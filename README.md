@@ -1,6 +1,8 @@
-# 내 월급으로 어디까지?
+# PaycheckPlanner (내 월급으로 어디까지?)
 
 월급과 연봉에 맞는 적정 월세, 차량 가격, 저축액을 계산해주는 한국 직장인을 위한 재정 가이드 서비스입니다.
+
+![OG Image](public/og-image.png)
 
 ## 주요 기능
 
@@ -17,16 +19,17 @@
 ### 저축 플래너 (`/savings`)
 - 저축 강도별 추천 (최소 10%, 권장 20%, 적극 30%)
 - 복리 효과 시뮬레이션 (1년~10년)
-- 비상금 6개월치 목표 달성 계산
+- 비상금 목표 금액 설정 및 달성 기간 계산
 - 연도별 예상 자산 시각화
 
 ## 기술 스택
 
-- **Framework**: Next.js 15 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS v4
-- **UI Components**: shadcn/ui
-- **Icons**: Lucide React
+- **Framework**: Next.js 16.0.8 (App Router, Turbopack)
+- **Runtime**: React 19.2.1
+- **Language**: TypeScript 5
+- **Styling**: Tailwind CSS v4 (OKLCH 색상 시스템)
+- **UI Components**: shadcn/ui (Radix UI 기반)
+- **Icons**: Lucide React 0.556.0
 
 ## 시작하기
 
@@ -49,6 +52,7 @@ http://localhost:3000 에서 확인할 수 있습니다.
 ```
 src/
 ├── app/
+│   ├── layout.tsx        # 루트 레이아웃 (메타데이터, OG 이미지)
 │   ├── page.tsx          # 랜딩 페이지
 │   ├── home/page.tsx     # 월세 계산기
 │   ├── car/page.tsx      # 차량 추천
@@ -76,8 +80,12 @@ src/
 - 최소: 세후 월급의 10%
 - 권장: 세후 월급의 20%
 - 적극: 세후 월급의 30%
-- 비상금 목표: 6개월치 생활비
+- 비상금 목표: 사용자 지정 금액 (100만원~5,000만원)
 
 ## 면책조항
 
 이 서비스에서 제공하는 추천 금액은 일반적인 재정 가이드라인을 기반으로 한 참고 자료입니다. 개인의 재정 상황에 따라 적정 금액은 달라질 수 있으며, 중요한 재정 결정은 전문가와 상담하시기 바랍니다.
+
+## License
+
+MIT
